@@ -9,7 +9,7 @@ Depends on :
 
 * sbt 0.11.3
 
-Scala 2.9.2
+* Scala 2.9.2
 
 To generate eclipse project:
 
