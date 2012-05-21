@@ -11,11 +11,9 @@ Depends on :
 
 * Scala 2.9.2
 
-Set Environment Variables:
+To generate Eclipse project:
 
-To generate eclipse project:
-
-sbt eclipse
+* sbt eclipse
 
 To run within sbt:
 
@@ -23,7 +21,9 @@ To run within sbt:
 * Choose engine 
 * Data is generated in the results folder
 
-To run within standalone (with correct VM options):
+(n.b Still need to figure out how to fork it correctly with the correct VM options)
+
+To run standalone (with correct VM options):
 
 * sbt compile
 
