@@ -11,13 +11,24 @@ Depends on :
 
 * Scala 2.9.2
 
+Set Environment Variables:
+
 To generate eclipse project:
 
 sbt eclipse
 
-To run basic example:
+To run within sbt:
 
 * sbt run
 * Choose engine 
 * Data is generated in the results folder
 
+To run within standalone (with correct VM options):
+
+* sbt compile
+
+* export JAVA_OPTS="-XX:+UseThreadPriorities -XX:ThreadPriorityPolicy=42 -Xms512M -Xmx512M -Xmn100M -Xss1024k -XX:+HeapDumpOnOutOfMemoryError -XX:+AggressiveOpts -XX:+OptimizeStringConcat -XX:+UseFastAccessorMethods -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=1 -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly"
+
+* sbt stage
+
+* target/start Engine

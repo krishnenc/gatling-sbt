@@ -1,7 +1,6 @@
 import sbt._
 import Keys._
 import com.typesafe.startscript.StartScriptPlugin
-import cc.spray.revolver.RevolverPlugin._
 import classpath.ClasspathUtilities.isArchive
 import java.io.FileOutputStream
 import sbtassembly.Plugin._
@@ -10,7 +9,7 @@ import AssemblyKeys._
 object BuildSettings {
   import Dependencies._
 
-  val buildOrganization = "org.krishnen.gatling"
+  val buildOrganization = "org.gatling"
   val buildVersion = "0.0.1"
   val buildScalaVersion = "2.9.2"
 
@@ -20,7 +19,6 @@ object BuildSettings {
     scalaVersion := buildScalaVersion,
     scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8"),
     javacOptions := Seq("-Xlint:unchecked", "-Xlint:deprecation","-encoding", "utf8"),
-    fork in test := true,
     resolvers ++= Dependencies.resolutionRepos)
   val projectSettings = Defaults.defaultSettings ++ globalSettings
 }
@@ -34,8 +32,7 @@ object Build extends sbt.Build {
   lazy val gatlingTemplate = Project("gatling-template",
     file("."),
     settings = projectSettings ++ assemblySettings ++
-    		   Revolver.settings ++ 
-      StartScriptPlugin.startScriptForJarSettings ++
+      StartScriptPlugin.startScriptForClassesSettings ++
       Seq(libraryDependencies ++= Seq(
         Compile.logback,
         Compile.gatlingApp,
@@ -48,7 +45,6 @@ object Dependencies {
   val resolutionRepos = Seq(
     "Scala Tools" at "http://scala-tools.org/repo-releases/",
     "Typesafe repo" at "http://repo.typesafe.com/typesafe/releases",
-    "Jboss repo" at "https://repository.jboss.org/nexus/content/groups/public-jboss/",
     "Excilys" at "http://repository.excilys.com/content/groups/public")
 
   object V {

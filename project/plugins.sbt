@@ -6,8 +6,6 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0")
 
 addSbtPlugin("com.typesafe.startscript" % "xsbt-start-script-plugin" % "0.5.2")
 
-addSbtPlugin("cc.spray" % "sbt-revolver" % "0.6.1")
-
 resolvers += Resolver.url("sbt-plugin-releases",
   			 new URL("http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns)
 
