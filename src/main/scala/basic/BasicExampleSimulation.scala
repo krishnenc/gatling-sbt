@@ -1,7 +1,20 @@
 package basic
 
-import com.excilys.ebi.gatling.core.Predef._
-import com.excilys.ebi.gatling.http.Predef._
+import com.excilys.ebi.gatling.core.Predef.MILLISECONDS
+import com.excilys.ebi.gatling.core.Predef.Simulation
+import com.excilys.ebi.gatling.core.Predef.chain
+import com.excilys.ebi.gatling.core.Predef.checkBuilderToCheck
+import com.excilys.ebi.gatling.core.Predef.csv
+import com.excilys.ebi.gatling.core.Predef.extractorCheckBuilderToMatcherCheckBuilder
+import com.excilys.ebi.gatling.core.Predef.scenario
+import com.excilys.ebi.gatling.core.Predef.stringToSessionFunction
+import com.excilys.ebi.gatling.core.Predef.toSessionFunction
+import com.excilys.ebi.gatling.core.feeder.SourceBasedFeederBuilder.feederBuilderToFeeder
+import com.excilys.ebi.gatling.http.Predef.http
+import com.excilys.ebi.gatling.http.Predef.httpConfig
+import com.excilys.ebi.gatling.http.Predef.status
+import com.excilys.ebi.gatling.http.Predef.toHttpProtocolConfiguration
+import com.excilys.ebi.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
 class BasicExampleSimulation extends Simulation {
 
