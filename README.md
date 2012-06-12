@@ -5,7 +5,7 @@ A sbt template project for writing [Gatling](https://github.com/excilys/gatling.
 
 Depends on :
 
-* gatling 1.1.6
+* gatling 1.2.1
 
 * sbt 0.11.3
 
