@@ -10,8 +10,8 @@ import AssemblyKeys._
 object BuildSettings {
   import Dependencies._
 
-  val buildOrganization = "com.logos.gatling"
-  val buildVersion = "0.0.1"
+  val buildOrganization = "org.krishnen.gatling.sbt"
+  val buildVersion = "0.0.2"
   val buildScalaVersion = "2.9.2"
 
   val globalSettings = Seq(

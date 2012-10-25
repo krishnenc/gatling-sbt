@@ -18,7 +18,7 @@ To generate Eclipse project:
 To run within sbt:
 
 * sbt run
-* Choose engine 
+* Choose simulation to run 
 * Data is generated in the results folder
 
 (n.b Still need to figure out how to fork it correctly with the correct VM options)
