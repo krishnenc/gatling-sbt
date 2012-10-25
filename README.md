@@ -5,9 +5,9 @@ A sbt template project for writing [Gatling](https://github.com/excilys/gatling.
 
 Depends on :
 
-* gatling 1.2.1
+* gatling 1.3.4
 
-* sbt 0.11.3
+* sbt 0.12.0
 
 * Scala 2.9.2
 
