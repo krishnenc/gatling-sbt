@@ -5,11 +5,11 @@ A sbt template project for writing [Gatling](https://github.com/excilys/gatling.
 
 Depends on :
 
-* gatling 1.3.4
+* gatling 1.4.3
 
 * sbt 0.12.0
 
-* Scala 2.9.2
+* Scala 2.9.3-RC1
 
 To generate Eclipse project:
 
