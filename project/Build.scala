@@ -12,7 +12,7 @@ object BuildSettings {
 
   val buildOrganization = "org.krishnen.gatling.sbt"
   val buildVersion = "0.0.2"
-  val buildScalaVersion = "2.9.2"
+  val buildScalaVersion = "2.9.3-RC1"
 
   val globalSettings = Seq(
     organization := buildOrganization,
@@ -53,10 +53,10 @@ object Dependencies {
     "Excilys" at "http://repository.excilys.com/content/groups/public")
 
   object V {
-    val slf4j = "1.6.4"
+    val slf4j = "1.7.2"
     val logback = "1.0.0"
-    val gatling = "1.3.4"
-    val redis = "2.7"
+    val gatling = "1.4.3"
+    val redis = "2.9"
   }
 
   object Compile {
@@ -65,6 +65,6 @@ object Dependencies {
     val gatlingHighCharts = "com.excilys.ebi.gatling.highcharts" % "gatling-charts-highcharts" % V.gatling % "compile"
     val logback = "ch.qos.logback" % "logback-classic" % "1.0.0" % "runtime"
     val log4j = "log4j" % "log4j" % "1.2.14" % "compile"
-    val redis = "net.debasishg" %% "redisclient" % V.redis % "compile"
+    val redis = "net.debasishg" % "redisclient_2.9.2" % V.redis % "compile"
   }
 }

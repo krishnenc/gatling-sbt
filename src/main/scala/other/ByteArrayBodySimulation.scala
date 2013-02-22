@@ -14,14 +14,13 @@ import serialization._
 class ByteArrayBodySimulation extends Simulation {
   val redisPool = new RedisClientPool("localhost", 6379)
 
-  def apply = {
-    val urlBase = "http://localhost:8080"
-    val httpConf = httpConfig.baseURL(urlBase)
+  val urlBase = "http://localhost:8080"
+  val httpConf = httpConfig.baseURL(urlBase)
 
-    val header = Map(
+  val header = Map(
       "Content-Type" -> "application/octet-stream")
 
-    val scn = scenario("Scenario name")
+  val scn = scenario("Scenario name")
 			.repeat(10) { 
     				exec((session: Session) => {
 					  http("Protocol Buffer - hola").post("/hola")
@@ -31,8 +30,8 @@ class ByteArrayBodySimulation extends Simulation {
 					})
 					.pause(7, 8)
 			}
-    List(scn.configure.users(10).ramp(1).protocolConfig(httpConf))
-  }
+  
+  setUp(scn.users(1).ramp(10).protocolConfig(httpConf))
 
   val getByteArrayBody = (session: Session) => {
     import Parse.Implicits.parseByteArray
