@@ -24,10 +24,13 @@ object Engine extends Logging {
 	 */
 	def main(args: Array[String]) {
 
-		println(IDEPathHelper.requestBodiesFolder.toString)
-	    val arguments = Array("--data-folder" , IDEPathHelper.dataFolder.toString, "--simulations-folder" , IDEPathHelper.mavenSourcesDir.toString ,
-	    					  "--request-bodies-folder" , IDEPathHelper.requestBodiesFolder.toString, "--results-folder" , IDEPathHelper.resultsFolder.toString)
 		val props = new GatlingPropertiesBuilder
+		
+		props.dataDirectory(IDEPathHelper.dataFolder.toString)
+		props.resultsDirectory(IDEPathHelper.resultsFolder.toString)
+		props.requestBodiesDirectory(IDEPathHelper.requestBodiesFolder.toString)
+		props.sourcesDirectory(IDEPathHelper.mavenSourcesDir.toString)
+		
 		val cliOptsParser = new OptionParser("gatling") {
 			opt(CLI_NO_REPORTS, CLI_NO_REPORTS_ALIAS, "Runs simulation but does not generate reports", { props.noReports })
 			opt(CLI_REPORTS_ONLY, CLI_REPORTS_ONLY_ALIAS, "<directoryName>", "Generates the reports for the simulation in <directoryName>", { v: String => props.reportsOnly(v) })
@@ -39,9 +42,11 @@ object Engine extends Logging {
 			opt(CLI_SIMULATION, CLI_SIMULATION_ALIAS, "<className>", "Runs <className> simulation", { v: String => props.clazz(v) })
 			opt(CLI_OUTPUT_DIRECTORY_BASE_NAME, CLI_OUTPUT_DIRECTORY_BASE_NAME_ALIAS, "<name>", "Use <name> for the base name of the output directory", { v: String => props.outputDirectoryBaseName(v) })
 		}
+		
 		// if arguments are incorrect, usage message is displayed
-		if (cliOptsParser.parse(arguments))
+		if (cliOptsParser.parse(args)) {
 			fromMap(props.build)
+		}
 	}
 
 	def fromMap(props: JMap[String, Any]) {
