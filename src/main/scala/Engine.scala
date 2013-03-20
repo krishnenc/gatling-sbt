@@ -1,5 +1,6 @@
 import java.lang.System.currentTimeMillis
 import java.util.{ Map => JMap }
+import scala.collection.JavaConversions._
 
 import com.excilys.ebi.gatling.app.Gatling
 import com.excilys.ebi.gatling.app.CommandLineConstants._
@@ -50,6 +51,7 @@ object Engine extends Logging {
 	}
 
 	def fromMap(props: JMap[String, Any]) {
+		props foreach println
 		GatlingConfiguration.setUp(props)
 		new Gatling().start
 	}
