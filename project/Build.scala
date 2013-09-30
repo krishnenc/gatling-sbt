@@ -55,7 +55,7 @@ object Dependencies {
   object V {
     val slf4j = "1.7.2"
     val logback = "1.0.0"
-    val gatling = "1.4.3"
+    val gatling = "1.4.5"
     val redis = "2.9"
   }
 
